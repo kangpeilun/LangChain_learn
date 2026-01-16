@@ -1,3 +1,7 @@
 langchain
 langchain-openai
 langchain-anthropic
+langchain-community
+dashscope
+beautifulsoup4
+docx2txt

@@ -6,29 +6,25 @@
 #       Email: 374774222@qq.com 
 # Description:
 
-from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
 from langchain.tools import tool
+from model_config import qwen3_max
 
-
-model = ChatOpenAI(
-    model="qwen3-max",
-    api_key="sk-11f927fe64e64886ae1364e132663e9a",
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1/"
-)
 
 @tool
 def search(query: str) -> str:
     """A search engine to find information about current events."""
     return "Search results for: " + query
 
+
 @tool
 def get_weather(location: str) -> str:
     """Get the current weather for a given location."""
     return "The current weather in " + location + " is sunny."
 
+
 agent = create_agent(
-    model=model,
+    model=qwen3_max,
     tools=[search, get_weather],
 )
 
